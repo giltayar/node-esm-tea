@@ -1,4 +1,4 @@
-export default 'short and mjs stout'
+export default 'short and js stout'
 
 export const spout = 'the spout'
 export const handle = 'the handle'

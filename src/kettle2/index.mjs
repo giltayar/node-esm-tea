@@ -1,1 +1,1 @@
-export default 'cold tea'
+export default 'cold mjs tea'
