@@ -11,10 +11,9 @@ console.log(toUpper('hello, world'))
 console.log(_.toUpper('hello, world'))
 
 async function main() {
-  const _ = await import('lodash')
+  // const _ = await import('lodash')
   // console.log(_.default.toUpper('dynamic import!'))
   console.log(_.toUpper('dynamic import!'))
 }
 
 main()
-

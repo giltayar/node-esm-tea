@@ -45,6 +45,12 @@ describe('cjs-esm differences', function() {
       expectedOutput.concat('the pot is black'),
     )
   })
+
+  it('renaming', async () => {
+    expect(execWithEsm('cjs', '05-main-renamed.js')).to.eql(expectedOutput)
+
+    expect(execWithEsm('esm', '05-main-renamed.mjs')).to.eql(expectedOutput)
+  })
 })
 
 function execWithEsm(...segments) {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r @std/esm test/**/*.test.mjs"
+    "test": "mocha -r @std/esm test/**/*.test.mjs && eslint ."
   },
   "repository": {
     "type": "git",
