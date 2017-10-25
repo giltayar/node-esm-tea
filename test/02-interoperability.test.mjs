@@ -11,20 +11,20 @@ describe('interoperability between cjs and mjs', function() {
     const expectedOutput = ['short and stout (cjs)']
 
     it('default using import', async () => {
-      expect(execWithEsm('interoperability', 'mjs-imports-cjs', '01-main-default.mjs')).to.eql(
+      expect(execWithEsm('02-interoperability', 'mjs-imports-cjs', '01-main-default.mjs')).to.eql(
         expectedOutput,
       )
     })
 
     it('default using dynamic import', async () => {
       expect(
-        execWithEsm('interoperability', 'mjs-imports-cjs', '02-main-named-import.mjs'),
+        execWithEsm('02-interoperability', 'mjs-imports-cjs', '02-main-named-import.mjs'),
       ).to.include('error:')
     })
 
     it('named using dynamic import', async () => {
       expect(
-        execWithEsm('interoperability', 'mjs-imports-cjs', '03-main-named-as-default.mjs'),
+        execWithEsm('02-interoperability', 'mjs-imports-cjs', '03-main-named-as-default.mjs'),
       ).to.eql(expectedOutput)
     })
   })
@@ -33,31 +33,31 @@ describe('interoperability between cjs and mjs', function() {
 
     it('default using require', async () => {
       expect(
-        execWithEsm('interoperability', 'cjs-imports-mjs', '01-main-default-require.js'),
+        execWithEsm('02-interoperability', 'cjs-imports-mjs', '01-main-default-require.js'),
       ).to.include('error:')
     })
 
     it('default using import', async () => {
       expect(
-        execWithEsm('interoperability', 'cjs-imports-mjs', '01-main-default-import.js'),
+        execWithEsm('02-interoperability', 'cjs-imports-mjs', '01-main-default-import.js'),
       ).to.include('error:')
     })
 
     it('default using dynamic import (native mjs)', async () => {
       expect(
-        execWithEsm('interoperability', 'cjs-imports-mjs', '03-main-default-dynamic-import.js'),
+        execWithEsm('02-interoperability', 'cjs-imports-mjs', '03-main-default-dynamic-import.js'),
       ).to.include('error:')
     })
 
     it('default using dynamic import (@std/mjs)', async () => {
       expect(
-        execWithStdEsm('interoperability', 'cjs-imports-mjs', '03-main-default-dynamic-import.js'),
+        execWithStdEsm('02-interoperability', 'cjs-imports-mjs', '03-main-default-dynamic-import.js'),
       ).to.eql(expectedOutput)
     })
 
     it('named using dynamic import', async () => {
       expect(
-        execWithStdEsm('interoperability', 'cjs-imports-mjs', '04-main-named-dynamic-import.js'),
+        execWithStdEsm('02-interoperability', 'cjs-imports-mjs', '04-main-named-dynamic-import.js'),
       ).to.eql(expectedOutput)
     })
   })
