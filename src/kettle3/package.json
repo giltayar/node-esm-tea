@@ -1,6 +1,3 @@
 {
-  "name": "kettle3",
-  "version": "1.0.0",
-  "description": "",
-  "main": "kettle3"
+  "main": "./ketlle3"
 }
