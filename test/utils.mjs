@@ -29,3 +29,16 @@ export function execWithStdEsm(...segments) {
     return `error: ${err.message}`
   }
 }
+
+export function execWithCjs(...segments) {
+  try {
+    return execFileSync('node', [path.join('src', ...segments)], {
+      stdio: 'pipe',
+    })
+      .toString()
+      .trim()
+      .split('\n')
+  } catch (err) {
+    return `error: ${err.message}`
+  }
+}

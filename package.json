@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r @std/esm test/**/*.test.mjs && eslint ."
+    "postinstall": "cd src/03-migration/dual-cjs-mjs-package && npm install && npm run build",
+    "build": "cd src/03-migration/dual-cjs-mjs-package && npm run build",
+    "test": "mocha -r @std/esm test/**/*.test.mjs && eslint .",
+    "eslint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -19,6 +22,8 @@
   "homepage": "https://github.com/giltayar/node-esm-tea#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-dynamic-import-node": "^1.1.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "chai": "^4.1.2",
@@ -30,8 +35,6 @@
   },
   "dependencies": {
     "@std/esm": "^0.12.1",
-    "babel-eslint": "^8.0.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-register": "^6.26.0",
     "lodash": "^4.17.4"
   }
