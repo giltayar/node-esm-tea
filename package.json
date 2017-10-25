@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@std/esm": "^0.12.1",
+    "babel-eslint": "^8.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-register": "^6.26.0",
     "lodash": "^4.17.4"
