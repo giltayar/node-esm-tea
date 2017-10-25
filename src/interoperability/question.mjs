@@ -1,1 +1,1 @@
-export default 'esm 42!'
+export default 'mjs 42!'

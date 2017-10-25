@@ -6,7 +6,7 @@ import {execWithEsm} from './utils'
 const {describe, it} = mocha
 const {expect} = chai
 
-describe('cjs-esm differences', function() {
+describe('cjs-mjs differences', function() {
   const expectedOutput = ['the handle', 'the spout', 'hot tea']
   const expectedScaldingOutput = ['the handle', 'the spout', 'scalding tea']
 
