@@ -25,9 +25,15 @@ describe('cjs-esm differences', function() {
   it('binding', async () => {
     expect(execWithEsm('cjs', '02-main-binding.js')).to.equal(expectedOutput)
 
-    expect(execWithEsm('esm', '02-main-binding.mjs')).to.include(
-      expectedOutput.replace('hot', 'hotter'),
+    expect(execWithEsm('esm', '02-main-binding.mjs')).to.equal(
+      expectedOutput.replace('hot', 'scalding'),
     )
+  })
+
+  it('default', async () => {
+    expect(execWithEsm('cjs', '03-main-default.js')).to.equal(expectedOutput)
+
+    expect(execWithEsm('esm', '03-main-default.mjs')).to.equal(expectedOutput)
   })
 })
 
