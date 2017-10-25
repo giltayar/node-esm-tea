@@ -1,1 +1,1 @@
--module.exports = 'short and stout (cjs)'
+module.exports = 'short and stout (cjs)'

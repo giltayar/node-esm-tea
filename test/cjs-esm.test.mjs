@@ -1,12 +1,8 @@
 'use strict'
-import util from 'util'
-import path from 'path'
-import childProcess from 'child_process'
 import mocha from 'mocha'
 import chai from 'chai'
+import {execWithEsm} from './utils'
 
-const {promisify: p} = util
-const {execFileSync} = childProcess
 const {describe, it} = mocha
 const {expect} = chai
 
@@ -67,16 +63,3 @@ describe('cjs-esm differences', function() {
     })
   })
 })
-
-function execWithEsm(...segments) {
-  try {
-    return execFileSync('node', ['--experimental-modules', path.join('src', ...segments)], {
-      stdio: 'pipe',
-    })
-      .toString()
-      .trim()
-      .split('\n')
-  } catch (err) {
-    return `error: ${err.message}`
-  }
-}
