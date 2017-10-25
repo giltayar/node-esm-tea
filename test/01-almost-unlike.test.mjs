@@ -1,7 +1,7 @@
 'use strict'
 import mocha from 'mocha'
 import chai from 'chai'
-import {execWithEsm} from './utils'
+import {execWithEsm, execWithStdEsm} from './utils'
 
 const {describe, it} = mocha
 const {expect} = chai
@@ -58,12 +58,37 @@ describe('cjs-mjs differences', function() {
 
       expect(execWithEsm('01-almost-unlike', 'esm', '06-main-dir-index.mjs')).to.eql(expectedOutput)
     })
+
     it('folder with package.json', async () => {
       expect(execWithEsm('01-almost-unlike', 'cjs', '07-main-dir-package.js')).to.eql(
         expectedOutput,
       )
 
       expect(execWithEsm('01-almost-unlike', 'esm', '07-main-dir-package.mjs')).to.eql(
+        expectedOutput,
+      )
+    })
+
+    it('node_modules', async () => {
+      expect(execWithEsm('01-almost-unlike', 'cjs', '08-main-dir-node_modules.js')).to.eql(
+        expectedOutput,
+      )
+
+      expect(execWithEsm('01-almost-unlike', 'esm', '08-main-dir-node_modules.mjs')).to.eql(
+        expectedOutput,
+      )
+    })
+  })
+
+  describe('import.meta.url', () => {
+    const expectedOutput = ['Hello, world']
+
+    it('import.meta.url', async () => {
+      expect(execWithEsm('01-almost-unlike', 'cjs', '09-main-dirname.js')).to.eql(expectedOutput)
+
+      expect(execWithEsm('01-almost-unlike', 'esm', '09-main-dirname.mjs')).to.include('error:')
+
+      expect(execWithStdEsm('01-almost-unlike', 'esm', '09-main-dirname.mjs')).to.eql(
         expectedOutput,
       )
     })
