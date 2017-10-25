@@ -12,10 +12,22 @@ const {expect} = chai
 
 describe('cjs-esm differences', function() {
   const expectedOutput = ['the handle', 'the spout', 'hot tea'].join('\n')
-  it('should run all code correctly', async () => {
+  it('simple import/export, no default', async () => {
     expect(execWithEsm('cjs', '01-main-no-default.js')).to.equal(expectedOutput)
-    expect(execWithEsm('esm', '01a-main-no-default.mjs')).to.include('require is not defined')
+
+    expect(execWithEsm('esm', '01a-main-no-default.mjs'))
+      .to.include('error:')
+      .and.to.include('require is not defined')
+
     expect(execWithEsm('esm', '01-main-no-default.mjs')).to.include(expectedOutput)
+  })
+
+  it('binding', async () => {
+    expect(execWithEsm('cjs', '02-main-binding.js')).to.equal(expectedOutput)
+
+    expect(execWithEsm('esm', '02-main-binding.mjs')).to.include(
+      expectedOutput.replace('hot', 'hotter'),
+    )
   })
 })
 

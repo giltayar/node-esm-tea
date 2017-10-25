@@ -1,5 +1,5 @@
 'use strict'
-const {handle, spout, tea} = require('./01-kettle-no-default')
+const {handle, spout, tea} = require('./01-kettle')
 
 console.log(handle)
 console.log(spout)
