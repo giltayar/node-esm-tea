@@ -80,10 +80,10 @@ describe('cjs-mjs differences', function() {
     })
   })
 
-  describe('import.meta.url', () => {
-    const expectedOutput = ['Hello, world']
-
+  describe('misc', () => {
     it('import.meta.url', async () => {
+      const expectedOutput = ['Hello, world']
+
       expect(execWithEsm('01-almost-unlike', 'cjs', '09-main-dirname.js')).to.eql(expectedOutput)
 
       expect(execWithEsm('01-almost-unlike', 'esm', '09-main-dirname.mjs')).to.include('error:')
@@ -91,6 +91,20 @@ describe('cjs-mjs differences', function() {
       expect(execWithStdEsm('01-almost-unlike', 'esm', '09-main-dirname.mjs')).to.eql(
         expectedOutput,
       )
+    })
+
+    it('dynamic import', async () => {
+      expect(execWithEsm('01-almost-unlike', 'cjs', '10-main-dynamic-import.js')).to.eql([
+        'hot tea',
+      ])
+
+      expect(execWithEsm('01-almost-unlike', 'esm', '10-main-dynamic-import..mjs')).to.include(
+        'error:',
+      )
+
+      expect(execWithStdEsm('01-almost-unlike', 'esm', '10-main-dynamic-import.mjs')).to.eql([
+        'the kettle hot tea',
+      ])
     })
   })
 })
