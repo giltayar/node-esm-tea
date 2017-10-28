@@ -1,2 +1,2 @@
 node_modules
-**/dual-cjs-mjs-package/**/*.js
+**/*dual-cjs-mjs-package/**/*.js
