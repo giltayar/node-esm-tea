@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd src/03-migration/dual-cjs-mjs-package && npm install && npm run build",
+    "postinstall": "npm run build:dual && npm run build:simple-dual",
+    "build:dual": "cd src/03-migration/dual-cjs-mjs-package && npm install && npm run build",
+    "build:simple-dual": "cd src/03-migration/simple-dual-cjs-mjs-package && npm install && npm run build",
     "build": "cd src/03-migration/dual-cjs-mjs-package && npm run build",
     "test": "mocha -r @std/esm test/**/*.test.mjs && eslint .",
     "eslint": "eslint ."
