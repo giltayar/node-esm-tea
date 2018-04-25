@@ -19,7 +19,7 @@ export function execWithEsm(...segments) {
 
 export function execWithStdEsm(...segments) {
   try {
-    return execFileSync('node', ['--require', '@std/esm', path.join('src', ...segments)], {
+    return execFileSync('node', ['--require', 'esm', path.join('src', ...segments)], {
       stdio: 'pipe',
     })
       .toString()

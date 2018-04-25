@@ -46,12 +46,16 @@ describe('interoperability between cjs and mjs', function() {
     it('default using dynamic import (native mjs)', async () => {
       expect(
         execWithEsm('02-interoperability', 'cjs-imports-mjs', '03-main-default-dynamic-import.js'),
-      ).to.include('error:')
+      ).to.eql(expectedOutput)
     })
 
-    it('default using dynamic import (@std/mjs)', async () => {
+    it('default using dynamic import (esm/mjs)', async () => {
       expect(
-        execWithStdEsm('02-interoperability', 'cjs-imports-mjs', '03-main-default-dynamic-import.js'),
+        execWithStdEsm(
+          '02-interoperability',
+          'cjs-imports-mjs',
+          '03-main-default-dynamic-import.js',
+        ),
       ).to.eql(expectedOutput)
     })
 

@@ -8,7 +8,7 @@
     "build:dual": "cd src/03-migration/dual-cjs-mjs-package && npm install && npm run build",
     "build:simple-dual": "cd src/03-migration/simple-dual-cjs-mjs-package && npm install && npm run build",
     "build": "cd src/03-migration/dual-cjs-mjs-package && npm run build",
-    "test": "mocha -r @std/esm test/**/*.test.mjs && eslint .",
+    "test": "mocha -r esm test/**/*.test.mjs && eslint .",
     "eslint": "eslint ."
   },
   "repository": {
@@ -24,20 +24,20 @@
   "homepage": "https://github.com/giltayar/node-esm-tea#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.0.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-plugin-dynamic-import-node": "^1.1.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "chai": "^4.1.2",
-    "eslint": "^4.9.0",
-    "eslint-plugin-mocha-no-only": "0.0.5",
-    "eslint-plugin-prettier": "^2.3.1",
-    "mocha": "^4.0.1",
-    "prettier": "^1.7.4"
+    "eslint": "^4.19.1",
+    "eslint-plugin-mocha-no-only": "0.0.6",
+    "eslint-plugin-prettier": "^2.6.0",
+    "mocha": "^5.1.1",
+    "prettier": "^1.12.1"
   },
   "dependencies": {
-    "@std/esm": "^0.12.1",
     "babel-register": "^6.26.0",
-    "lodash": "^4.17.4"
+    "esm": "^3.0.25",
+    "lodash": "^4.17.10"
   }
 }
