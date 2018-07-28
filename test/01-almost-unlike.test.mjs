@@ -86,7 +86,7 @@ describe('cjs-mjs differences', function() {
 
       expect(execWithEsm('01-almost-unlike', 'cjs', '09-main-dirname.js')).to.eql(expectedOutput)
 
-      expect(execWithEsm('01-almost-unlike', 'esm', '09-main-dirname.mjs')).to.include('error:')
+      expect(execWithEsm('01-almost-unlike', 'esm', '09-main-dirname.mjs')).to.eql(expectedOutput)
 
       expect(execWithStdEsm('01-almost-unlike', 'esm', '09-main-dirname.mjs')).to.eql(
         expectedOutput,
