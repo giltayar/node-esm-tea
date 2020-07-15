@@ -38,6 +38,6 @@
   "dependencies": {
     "babel-register": "^6.26.0",
     "esm": "^3.0.25",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.19"
   }
 }
