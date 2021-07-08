@@ -1,7 +1,7 @@
 {
   "name": "node-esm-tea",
   "version": "1.0.0",
-  "description": "",
+  "description": "companion code to Node ESM lecture",
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run build:dual && npm run build:simple-dual",
